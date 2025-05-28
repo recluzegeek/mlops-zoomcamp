@@ -33,6 +33,15 @@ mlflow ui --host 0.0.0.0 --backend-store-uri sqlit:///mlflow.db
 - log metrics with `mlflow.log_metric('key', 'value')` or `mlflow.log_params(metric_dict)`
 - set tags for filtering purposes, like `mlflow.set_tag('model', 'xgboost')`
 - `mlflow` support automatic logging for some custom models/frameworks with `autolog`, i.e. for `xgboost`, we can use `mlflow.xgboost.autolog()`
+- `mlflow.search_experiments()` list all the experiments, if no argument (experiment_id) is provided
+- `mlflow.get_run(run_id)` provides detailed info for a given run
+
+### Model Management
+
+- log model as an artifact `mlflow.log_artifact(local_path_to_store_artifact, artifact_path_for_mlflow)`
+- log model using `mlflow.<framework>.log_model(model, artifact_path_for_mlflow)`, i.e. for xgboost, we can store using `mlflow.xgboost.log_model(model, artifact_path='xgboost_mlflow/')`
+
+- `mlflow` provides snippets as well for loading model and prediction
 
 ## Acknowledgements
 
